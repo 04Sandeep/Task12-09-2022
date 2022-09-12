@@ -6,6 +6,7 @@ public class PageFactory {
     WebDriver driver;
     private LoginPageOfAdminDemo loginPage;
     private AddingEmailNewAddressses addingNewEmail;
+    private AddingNewStore addingNewStore;
 
 
     public PageFactory(WebDriver driver) {
@@ -23,5 +24,13 @@ public class PageFactory {
            addingNewEmail = new AddingEmailNewAddressses(driver);
         }
         return addingNewEmail;
+    }
+    public AddingNewStore getAddingNewStore()
+    {
+        if (addingNewStore == null) {
+            addingNewStore = new AddingNewStore(driver);
+        }
+        return addingNewStore;
+
     }
 }

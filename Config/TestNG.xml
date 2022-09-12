@@ -3,7 +3,7 @@
     <test name="Verify user is logged in">
         <parameter name="browserName" value="chrome"/>
         <classes>
-            <class name="TestingOfConfiguration.EmailAccountsTesting"/>
+            <class name="TestingOfConfiguration.NewStoreTesting"/>
         </classes>
     </test>
 </suite>
