@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class PageFactory {
     WebDriver driver;
     private LoginPageOfAdminDemo loginPage;
+    private AddingEmailNewAddressses addingNewEmail;
 
 
     public PageFactory(WebDriver driver) {
@@ -17,5 +18,10 @@ public class PageFactory {
         }
         return loginPage;
     }
-
+    public AddingEmailNewAddressses getAddingEmailNewAddressses() {
+        if (addingNewEmail == null) {
+           addingNewEmail = new AddingEmailNewAddressses(driver);
+        }
+        return addingNewEmail;
+    }
 }
