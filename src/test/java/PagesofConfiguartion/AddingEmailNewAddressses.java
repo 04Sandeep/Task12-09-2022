@@ -2,12 +2,10 @@ package PagesofConfiguartion;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
-import java.time.Duration;
-
-public class AddingEmailNewAddressses {
+public class AddingEmailNewAddressses
+{
     WebDriver driver;
 
     By configurationclick = By.xpath("//*[contains(text(),'Configuration')]");
@@ -24,13 +22,12 @@ public class AddingEmailNewAddressses {
     public AddingEmailNewAddressses( WebDriver driver)
     {
         this.driver = driver;
-
     }
-
    public void addingNewEmail()
    {
        driver.findElement(configurationclick).click();
        driver.findElement(emialAccountsclick).click();
+       Assert.assertEquals(driver.findElement(By.xpath("//h1[contains(text(),'Email accounts')]")).getText(), "Email accounts");
        driver.findElement(addNewButton).click();
        driver.findElement(emailaddress).sendKeys("sandeep411@gmail.com");
        driver.findElement(displayName).sendKeys("Sandeep");
@@ -39,7 +36,6 @@ public class AddingEmailNewAddressses {
        driver.findElement(password).sendKeys("04085656");
        driver.findElement(sslbox).click();
        driver.findElement(userdefaultcredentials).click();
-
        driver.findElement(save).click();
    }
 }

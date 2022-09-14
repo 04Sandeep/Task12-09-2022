@@ -8,13 +8,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
-
 import java.time.Duration;
-
 public class BaseClass {
     protected static PageFactory pageFactory;
     public static WebDriver driver;
-
     @Parameters("browserName")
     @BeforeClass
     public static void setup(String browserName) {
@@ -36,11 +33,11 @@ public class BaseClass {
             pageFactory = new PageFactory(driver);
         }
     }
-    @AfterClass
-    public void close()
-    {
-        driver.close();
-    }
+     @AfterClass
+      public void close()
+     {
+      driver.close();
+     }
 }
 
 

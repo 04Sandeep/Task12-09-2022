@@ -1,17 +1,16 @@
 package TestingOfConfiguration;
 
-import PagesofConfiguartion.AddingNewStore;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class NewStoreTesting extends BaseClass{
+public class CategorySearchTesting extends BaseClass
+{
     @Test
 
-    public void AddingNewStore() throws IOException
-    {
+    public void CategoriesearchTesting() throws IOException ,InterruptedException {
         pageFactory.getLoginPageOfAdminDemo().loginPage();
-        pageFactory.getAddingNewStore().addingNewStore();
+        pageFactory.getCategorieSearchPage().categoriesSearchPage();
         pageFactory.getLoginPageOfAdminDemo().logout();
     }
 }
