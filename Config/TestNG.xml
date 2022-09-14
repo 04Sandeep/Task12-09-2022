@@ -1,9 +1,22 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Cases" verbose="1" >
-    <test name="Verify user is logged in">
+    <test name="Verify added login">
         <parameter name="browserName" value="chrome"/>
         <classes>
-            <class name="TestingOfConfiguration.NewStoreTesting"/>
+            <class name="TestingOfConfiguration.LoginTesting"/>
         </classes>
     </test>
+    <test name="Verify added email Id">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="TestingOfConfiguration.EmailAccountsTesting"/>
+        </classes>
+    </test>
+
+        <test name="Verify added new store">
+            <parameter name="browserName" value="chrome"/>
+            <classes>
+                <class name="TestingOfConfiguration.NewStoreTesting"/>
+            </classes>
+        </test>
 </suite>
