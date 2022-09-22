@@ -10,6 +10,7 @@ public class PageFactory
     private AddingNewStore addingNewStore;
     private CatalogPage catalogPage;
     private CategorieSearchPage categorieSearchPage;
+    private SystemAlertPage systemAlertPage;
     public PageFactory(WebDriver driver) {
         this.driver = driver;
     }
@@ -54,5 +55,14 @@ public class PageFactory
             categorieSearchPage = new CategorieSearchPage(driver);
         }
         return categorieSearchPage;
+    }
+
+    public SystemAlertPage getSystemAlertPage()
+    {
+        if(systemAlertPage == null)
+        {
+            systemAlertPage = new SystemAlertPage(driver);
+        }
+        return systemAlertPage;
     }
 }

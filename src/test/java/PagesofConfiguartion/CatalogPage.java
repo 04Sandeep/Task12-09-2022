@@ -45,5 +45,6 @@ public class CatalogPage {
         driver.findElement(published).sendKeys("Published only");
         driver.findElement(clickOnSearch).click();
         wait.until(ExpectedConditions.elementToBeClickable(clickOnSearch));
+
     }
 }

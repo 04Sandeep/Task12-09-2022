@@ -24,15 +24,19 @@ public class AddingNewStore
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(2));
     }
-    public void addingNewStore() {
+    public void addingNewStore()
+    {
         driver.findElement(configuration).click();
         driver.findElement(selectstores).click();
         Assert.assertEquals(driver.findElement(By.xpath("//h1[contains(text(),'Stores')]")).getText(), "Stores");
         driver.findElement(addStores).click();
+       // JavascriptExecutor jse = (JavascriptExecutor) driver;
+       // jse.executeScript("document.getElementByxpath('storename').value='Amazon'");
         driver.findElement(storename).sendKeys("Amazon");
         driver.findElement(addUrl).sendKeys("amazon123@gmail.com");
         driver.findElement(enableSSL).click();
         wait.until(ExpectedConditions.elementToBeClickable(enableSSL));
         driver.findElement(clicksave).click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[contains(text(), 'Logout')]"))));
     }
 }

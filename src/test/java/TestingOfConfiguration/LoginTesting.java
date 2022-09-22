@@ -12,6 +12,7 @@ public class LoginTesting extends BaseClass {
         public void LoginPageOfAdminDemo() throws IOException
     {
             pageFactory.getLoginPageOfAdminDemo().loginPage();
+            pageFactory.getLoginPageOfAdminDemo().listelement();
         }
     }
 

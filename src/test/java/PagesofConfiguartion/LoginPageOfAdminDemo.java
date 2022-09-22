@@ -4,15 +4,18 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
+import java.util.List;
 public class LoginPageOfAdminDemo
 {
     WebDriver driver;
+    WebDriverWait wait;
+    List<WebElement> tabs;
     public static  String path;
     public LoginPageOfAdminDemo(WebDriver driver)
     {
@@ -39,7 +42,17 @@ public class LoginPageOfAdminDemo
     }
     public void logout()
     {
+
         driver.findElement(By.xpath("//*[contains(text(), 'Logout')]")).click();
+    }
+    public void listelement()
+    {
+        tabs = driver.findElements(By.tagName("a"));
+        for(WebElement j :tabs)
+        {
+            String StrLinkTxt = j.getText();
+            System.out.println(StrLinkTxt);
+        }
     }
 }
 

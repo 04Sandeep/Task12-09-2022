@@ -5,10 +5,10 @@
     <listeners>    <listener class-name="Reports.Listeners"/></listeners>
 
     <test name="Verify Login">
-    <parameter name="browserName" value="chrome"/>
-    <classes>
-        <class name="TestingOfConfiguration.LoginTesting"/>
-    </classes>
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="TestingOfConfiguration.LoginTesting"/>
+        </classes>
     </test>
 
     <test name="Verify Adding New Email details">
@@ -38,4 +38,13 @@
             <class name="TestingOfConfiguration.CategorySearchTesting"/>
         </classes>
     </test>
+
+    <test name="Verify Alert Message">
+       <parameter name="browserName" value="chrome"/>
+      <classes>
+           <class name="TestingOfConfiguration.SystemAlertTesting"/>
+       </classes>
+       </test>
+
+
 </suite>
