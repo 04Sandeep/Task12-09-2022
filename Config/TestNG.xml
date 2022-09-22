@@ -1,9 +1,50 @@
+
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
 <suite name="All Test Cases" verbose="1" >
-    <test name="Verify user is logged in">
+    <listeners>    <listener class-name="Reports.Listeners"/></listeners>
+
+    <test name="Verify Login">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="TestingOfConfiguration.LoginTesting"/>
+        </classes>
+    </test>
+
+    <test name="Verify Adding New Email details">
         <parameter name="browserName" value="chrome"/>
         <classes>
             <class name="TestingOfConfiguration.EmailAccountsTesting"/>
         </classes>
     </test>
+
+    <test name="Verify Adding New Store details">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="TestingOfConfiguration.NewStoreTesting"/>
+        </classes>
+    </test>
+
+    <test name="Verify Searching Catlog">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="TestingOfConfiguration.CatalogTesting"/>
+        </classes>
+    </test>
+
+    <test name="Verify Category">
+        <parameter name="browserName" value="chrome"/>
+        <classes>
+            <class name="TestingOfConfiguration.CategorySearchTesting"/>
+        </classes>
+    </test>
+
+    <test name="Verify Alert Message">
+       <parameter name="browserName" value="chrome"/>
+      <classes>
+           <class name="TestingOfConfiguration.SystemAlertTesting"/>
+       </classes>
+       </test>
+
+
 </suite>

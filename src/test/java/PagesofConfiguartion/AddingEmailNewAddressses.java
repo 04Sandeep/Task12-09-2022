@@ -2,9 +2,12 @@ package PagesofConfiguartion;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
-public class AddingEmailNewAddressses {
+public class AddingEmailNewAddressses
+{
     WebDriver driver;
+
     By configurationclick = By.xpath("//*[contains(text(),'Configuration')]");
     By emialAccountsclick = By.xpath("//*[contains(text(),'Email accounts')]");
     By addNewButton = By.xpath("//a[@class = 'btn btn-primary']");
@@ -20,11 +23,11 @@ public class AddingEmailNewAddressses {
     {
         this.driver = driver;
     }
-
    public void addingNewEmail()
    {
        driver.findElement(configurationclick).click();
        driver.findElement(emialAccountsclick).click();
+       Assert.assertEquals(driver.findElement(By.xpath("//h1[contains(text(),'Email accounts')]")).getText(), "Email accounts");
        driver.findElement(addNewButton).click();
        driver.findElement(emailaddress).sendKeys("sandeep411@gmail.com");
        driver.findElement(displayName).sendKeys("Sandeep");

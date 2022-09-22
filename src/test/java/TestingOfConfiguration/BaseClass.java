@@ -1,46 +1,38 @@
 package TestingOfConfiguration;
 
 import PagesofConfiguartion.PageFactory;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.*;
+import java.net.MalformedURLException;
 import java.time.Duration;
+import java.net.URL;
+public class BaseClass
+{
+        protected static PageFactory pageFactory;
+        public WebDriver driver;
+        public String URL, Node;
+        protected ThreadLocal<RemoteWebDriver> threadDriver = null;
+        @Parameters("browserName")
+        @BeforeTest
 
-public class BaseClass {
-    protected static PageFactory pageFactory;
-    public static WebDriver driver;
-
-    @Parameters("browserName")
-    @BeforeClass
-    public static void setup(String browserName) {
-        if (browserName.equalsIgnoreCase("chrome"))
+        public void setup(String browser) throws MalformedURLException
         {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-            driver.navigate().to("https://admin-demo.nopcommerce.com/admin/");
+            System.setProperty("webdriver.chrome.driver", "C://Users//SandeepKaur//chromedriver.exe");
+            String Node = "http://10.10.30.190:4444/wd/hub";
+            DesiredCapabilities cap = new DesiredCapabilities();
+            cap.setBrowserName("chrome");
+            driver = new RemoteWebDriver(new URL(Node), cap);
+            driver.get("https://admin-demo.nopcommerce.com");
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
             pageFactory = new PageFactory(driver);
         }
-        else if (browserName.equalsIgnoreCase("firefox"))
-        {
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
-            driver.manage().window().maximize();
-            driver.navigate().to("https://admin-demo.nopcommerce.com/admin/");
-            pageFactory = new PageFactory(driver);
+        @AfterTest
+        public void closeBrowser() {
+            driver.quit();
         }
     }
-    @AfterClass
-    public void close()
-    {
-        driver.close();
-    }
-}
+
 
 
