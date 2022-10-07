@@ -2,9 +2,14 @@ package PagesofConfiguartion;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class AddingEmailNewAddressses {
     WebDriver driver;
+
     By configurationclick = By.xpath("//*[contains(text(),'Configuration')]");
     By emialAccountsclick = By.xpath("//*[contains(text(),'Email accounts')]");
     By addNewButton = By.xpath("//a[@class = 'btn btn-primary']");
@@ -19,6 +24,7 @@ public class AddingEmailNewAddressses {
     public AddingEmailNewAddressses( WebDriver driver)
     {
         this.driver = driver;
+
     }
 
    public void addingNewEmail()
@@ -33,6 +39,7 @@ public class AddingEmailNewAddressses {
        driver.findElement(password).sendKeys("04085656");
        driver.findElement(sslbox).click();
        driver.findElement(userdefaultcredentials).click();
+
        driver.findElement(save).click();
    }
 }
